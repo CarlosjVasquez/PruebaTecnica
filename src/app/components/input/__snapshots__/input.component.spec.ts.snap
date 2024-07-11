@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InputComponent match to snapshot 1`] = `
+<div
+  id="root1"
+>
+  <div
+    class="form-group"
+  >
+    
+    <input
+      class="form-input ng-untouched ng-pristine ng-valid"
+      id="undefined"
+      max="undefined"
+      min="undefined"
+      placeholder=""
+      type="text"
+    />
+    
+  </div>
+</div>
+`;

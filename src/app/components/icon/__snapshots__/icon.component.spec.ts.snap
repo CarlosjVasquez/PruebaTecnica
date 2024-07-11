@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`IconComponent match to snapshot 1`] = `
+<div
+  id="root1"
+>
+  <picture>
+    <img
+      alt="icon"
+      height="25"
+      src=""
+      width="25"
+    />
+  </picture>
+</div>
+`;

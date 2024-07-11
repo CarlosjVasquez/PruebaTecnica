@@ -1,0 +1,121 @@
+<div class="mt-3">
+  <form #f="ngForm" (ngSubmit)="onSubmit()" (reset)="f.reset()">
+    <div class="row">
+      <div class="col">
+        <custom-input
+          label="ID"
+          id="id"
+          name="id"
+          [minlength]="3"
+          [maxlength]="10"
+          [required]="true"
+          [(ngModel)]="product.id"
+          [errors]="
+            (f.controls['id'] ? f.controls['id'].errors : null) ||
+            errorVerificationId
+          "
+          (onChangeEventEmitter)="verificationID($event)"
+          [onlyLetters]="true"
+          [disabled]="edit"
+        />
+      </div>
+      <div class="col">
+        <custom-input
+          label="Nombre"
+          id="name"
+          name="name"
+          [minlength]="5"
+          [maxlength]="100"
+          [required]="true"
+          [(ngModel)]="product.name"
+          [errors]="f.controls['name'] ? f.controls['name'].errors : null"
+          [onlyLetters]="true"
+        />
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col">
+        <custom-input
+          label="Descripción"
+          id="description"
+          name="description"
+          [minlength]="10"
+          [maxlength]="200"
+          [required]="true"
+          [(ngModel)]="product.description"
+          [errors]="
+            f.controls['description'] ? f.controls['description'].errors : null
+          "
+          [onlyLetters]="true"
+        />
+      </div>
+      <div class="col">
+        <custom-input
+          label="Logo"
+          id="logo"
+          name="logo"
+          [required]="true"
+          [(ngModel)]="product.logo"
+          [errors]="f.controls['logo'] ? f.controls['logo'].errors : null"
+        />
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col">
+        <custom-input
+          type="date"
+          label="Fecha de Liberación"
+          id="date_release"
+          name="date_release"
+          [required]="true"
+          [(ngModel)]="product.date_release"
+          [errors]="
+            f.controls['date_release']
+              ? f.controls['date_release'].errors
+              : null
+          "
+          [min]="currentDate()"
+          (onChangeEventEmitter)="calcdate_revision()"
+        />
+      </div>
+      <div class="col">
+        <custom-input
+          label="Fecha de Revisión"
+          id="date_revision"
+          name="date_revision"
+          type="date"
+          [required]="true"
+          [(ngModel)]="product.date_revision"
+          [errors]="
+            f.controls['date_revision']
+              ? f.controls['date_revision'].errors
+              : null
+          "
+          [disabled]="true"
+        />
+      </div>
+    </div>
+    <div class="row mt-5">
+      @if(!edit) {
+      <div class="col">
+        <custom-button
+          type="reset"
+          class="content-btn-right"
+          label="Reiniciar"
+          asda
+          color="body"
+        />
+      </div>
+      }
+
+      <div class="col">
+        <custom-button
+          type="submit"
+          [class]="edit ? 'content-btn-center' : 'content-btn-left'"
+          label="Enviar"
+          [disabled]="f.invalid || !!errorVerificationId"
+        />
+      </div>
+    </div>
+  </form>
+</div>

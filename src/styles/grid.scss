@@ -1,0 +1,46 @@
+@use "sass:math";
+
+@import "mixins";
+
+// Row class
+.row {
+  @include make-grid();
+}
+
+// Column classes
+@for $i from 1 through $grid-columns {
+  .col-#{$i} {
+    @include make-col($i);
+  }
+}
+
+// Responsive column classes
+@each $breakpoint, $size in $breakpoints {
+  @for $i from 1 through $grid-columns {
+    .col-#{$breakpoint}-#{$i} {
+      @include respond-to($breakpoint) {
+        @include make-col($i);
+      }
+    }
+  }
+}
+
+// Automatic column class
+.col {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex: 1;
+  padding-right: math.div($gutter-width, 2);
+  padding-left: math.div($gutter-width, 2);
+  box-sizing: border-box;
+
+  > * {
+    width: 100%;
+    box-sizing: inherit;
+  }
+
+  * {
+    box-sizing: inherit;
+  }
+}

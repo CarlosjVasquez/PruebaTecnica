@@ -1,0 +1,12 @@
+@use "sass:math";
+@function get-text-color($bg-color) {
+  @if (lightness($bg-color) > 50%) {
+    @return #333;
+  } @else {
+    @return #fff;
+  }
+}
+
+@function percentage($fraction) {
+  @return math.div($fraction, $grid-columns) * 100%;
+}

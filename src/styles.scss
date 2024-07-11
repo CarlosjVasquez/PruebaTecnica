@@ -1,1 +1,172 @@
-/* You can add global styles to this file, and also import other style files */
+@import "styles/variables.scss";
+@import "styles/mixins.scss";
+@import "styles/grid.scss";
+
+// Se define estilo de body
+body {
+  background: map-get($colors, body);
+  font-family: sans-serif;
+}
+
+// Aplicar el mixin al container
+.container {
+  @include container-sizes($container-sizes);
+  padding: 20px;
+  margin: 0 auto;
+}
+
+.container-sm {
+  @include container-sizes($container-sm-sizes);
+  padding: 20px;
+  margin: 0 auto;
+}
+
+// Estilos básicos para tablas
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+  background-color: transparent;
+
+  th,
+  td {
+    padding: 0.75rem;
+    vertical-align: center;
+  }
+
+  thead {
+    background: map-get($colors, body);
+    th {
+      vertical-align: bottom;
+      border-bottom: 2px solid #dee2e6;
+    }
+  }
+
+  tbody {
+    tr {
+      border-bottom: 2px solid #dee2e6;
+    }
+  }
+}
+
+// Generar clase de imagen de tabla
+.table-img {
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  border-radius: 50%;
+  & img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+// Estilos básicos para botones
+.btn {
+  display: inline-block;
+  font-weight: 600;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: 0.7rem 1rem;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+  &-sm {
+    padding: map-get($btn-sizes, sm);
+    font-size: 0.875rem;
+  }
+
+  &-md {
+    padding: map-get($btn-sizes, md);
+    font-size: 1rem;
+  }
+
+  &-lg {
+    padding: map-get($btn-sizes, lg);
+    font-size: 1.25rem;
+  }
+}
+
+.is-btn-disabled {
+  pointer-events: none;
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+// Definición de estilos para input
+.form-group {
+  text-align: start;
+}
+
+.form-label {
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+
+.is-disabled {
+  color: map-get($colors, light);
+}
+
+.form-input {
+  display: block;
+  min-width: 150px;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.3s ease;
+
+  &:focus {
+    outline: none;
+    border-color: map-get($colors, primary);
+  }
+
+  &.is-invalid {
+    border-color: map-get($colors, danger);
+  }
+}
+
+.form-error {
+  color: map-get($colors, danger);
+  font-size: 0.8rem;
+}
+
+// Estilos Scroll-bar
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+// Generar las clases de color para botones
+@include generate-button-color-classes();
+
+// Generar las clases de color de fondo
+@include generate-bg-color-classes();
+
+// Generar las clases de color de texto
+@include generate-text-color-classes();
+
+// Generar las clases de padding
+@include generate-padding-classes();
+
+// Generar clases de margin
+@include generate-margin-classes();

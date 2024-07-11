@@ -1,0 +1,57 @@
+/* Estilos generales para el modal */
+.modal {
+  /* Ocultar el modal por defecto */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+  overflow: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Estilos para el contenido del modal */
+.modal-content {
+  background-color: #fefefe;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px;
+  position: relative;
+  border-radius: 10px;
+  .modal-body {
+    // min-height: 100px;
+    text-align: center;
+    p {
+    }
+  }
+  .modal-footer {
+    border-top: 1px #888 solid;
+  }
+}
+
+/* Estilos para el botón de cerrar */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.custom-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
