@@ -4,15 +4,13 @@ import {
   EventEmitter,
   forwardRef,
   Input,
-  OnChanges,
   Output,
-  SimpleChanges,
 } from '@angular/core';
 import {
   ControlValueAccessor,
+  FormControl,
   FormsModule,
   NG_VALUE_ACCESSOR,
-  ValidationErrors,
 } from '@angular/forms';
 
 @Component({
@@ -29,51 +27,26 @@ import {
     },
   ],
 })
-export class InputComponent implements ControlValueAccessor, OnChanges {
+export class InputComponent implements ControlValueAccessor {
   @Input() label: string = '';
   @Input() type: string = 'text';
   @Input() placeholder: string = '';
   @Input() id!: string;
   @Input() name!: string;
   @Input() disabled: boolean = false;
-  @Input() errors!: ValidationErrors | null | undefined;
   @Input() required!: boolean;
   @Input() minlength!: number;
   @Input() maxlength!: number;
   @Input() min!: number | string;
   @Input() max!: number;
   @Input() onlyLetters: boolean = false;
+  @Input() formControl: FormControl = new FormControl();
   @Output() onChangeEventEmitter: EventEmitter<string> = new EventEmitter();
   @Output() onInputEventEmitter: EventEmitter<string> = new EventEmitter();
   value: any;
-  error: string = '';
 
   onChange: any = () => {};
   onTouch: any = () => {};
-
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes['errors']?.currentValue) {
-      const newErrors = changes['errors'].currentValue;
-      if (newErrors['required']) {
-        this.error = 'Este campo es requerido';
-        return;
-      }
-      if (newErrors['min']) {
-        this.error = `Este campo debe ser mínimo ${newErrors['min']}`;
-        return;
-      }
-      if (newErrors['minlength']) {
-        this.error = `Este campo debe tener mínimo ${newErrors['minlength']['requiredLength']} caracteres`;
-        return;
-      }
-      if (newErrors['customError']) {
-        this.error = newErrors['customError']['message'];
-      }
-
-      return;
-    }
-    this.error = '';
-  }
 
   writeValue(value: any): void {
     this.value = value;

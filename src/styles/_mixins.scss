@@ -2,7 +2,6 @@
 @import "variables.scss";
 @import "functions.scss";
 
-// Mixin for creating responsive columns
 @mixin make-col($size) {
   width: percentage($size);
   padding-right: math.div($gutter-width, 2);
@@ -10,7 +9,6 @@
   box-sizing: border-box;
 }
 
-// Mixin for creating responsive grid
 @mixin make-grid() {
   display: flex;
   flex-wrap: wrap;
@@ -18,7 +16,6 @@
   margin-left: (math.div($gutter-width, 2) * -1);
 }
 
-// Mixin for responsive breakpoints
 @mixin respond-to($breakpoint) {
   @if map-has-key($breakpoints, $breakpoint) {
     @media (min-width: map-get($breakpoints, $breakpoint)) {
@@ -29,7 +26,6 @@
   }
 }
 
-// Generar clases de color para botones
 @mixin generate-button-color-classes() {
   @each $name, $color in $colors {
     .btn-#{$name} {
@@ -39,22 +35,21 @@
 
       &:hover {
         color: get-text-color($color);
-        background-color: darken($color, 10%);
-        border-color: darken($color, 10%);
+        background-color: lighten($color, 10%);
+        border-color: lighten($color, 10%);
       }
 
       &:focus,
       &:active {
         color: get-text-color($color);
-        background-color: darken($color, 10%);
-        border-color: darken($color, 10%);
+        background-color: lighten($color, 10%);
+        border-color: lighten($color, 10%);
         box-shadow: 0 0 0 0.2rem rgba($color, 0.5);
       }
     }
   }
 }
 
-// Mixins para media queries
 @mixin respond-to($breakpoint) {
   @if $breakpoint == xs {
     @media (max-width: map-get($breakpoints, xsmall)) {
@@ -83,7 +78,6 @@
   }
 }
 
-// Mixin para ajustar medidas del container
 @mixin container-sizes($sizes) {
   @include respond-to(xs) {
     width: map-get($sizes, xs);
@@ -105,7 +99,6 @@
   }
 }
 
-// Generar clases de color de fondo para filas
 @mixin generate-bg-color-classes() {
   @each $name, $color in $colors {
     .bg-#{$name} {
@@ -114,7 +107,6 @@
   }
 }
 
-// Generar clases de color de fondo para filas
 @mixin generate-text-color-classes() {
   @each $name, $color in $colors {
     .text-#{$name} {
@@ -123,7 +115,6 @@
   }
 }
 
-// Mixin para generar clases de padding
 @mixin generate-padding-classes() {
   @each $key, $value in $padding-margin-sizes {
     .p-#{$key} {
@@ -152,7 +143,6 @@
   }
 }
 
-// Mixin para generar clases de margin
 @mixin generate-margin-classes() {
   @each $key, $value in $padding-margin-sizes {
     .m-#{$key} {

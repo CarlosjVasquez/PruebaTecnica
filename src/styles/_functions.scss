@@ -1,9 +1,9 @@
 @use "sass:math";
 @function get-text-color($bg-color) {
   @if (lightness($bg-color) > 50%) {
-    @return #333;
+    @return  map-get($colors, secondary);
   } @else {
-    @return #fff;
+    @return map-get($colors, secondary);
   }
 }
 

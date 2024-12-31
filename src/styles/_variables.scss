@@ -1,7 +1,6 @@
-// variables para los colores principales de la aplicación
 $colors: (
-  primary: #f5df66,
-  secondary: #6e6e73,
+  primary: #FFDD00,
+  secondary: #0F265C,
   success: #28a745,
   danger: #dc3545,
   warning: #ffc107,
@@ -12,11 +11,9 @@ $colors: (
   "white": #fff,
 );
 
-// Variables para grid
 $grid-columns: 12;
 $gutter-width: 1rem;
 
-// Variables para breakpoints
 $breakpoints: (
   xsmall: 576px,
   small: 768px,
@@ -25,7 +22,6 @@ $breakpoints: (
   xlarge: 1400px,
 );
 
-// Medidas para el container en diferentes breakpoints
 $container-sizes: (
   xs: 100%,
   sm: 95%,
@@ -44,7 +40,6 @@ $container-sm-sizes: (
   xxl: 45%,
 );
 
-// Tamaños para padding y margin
 $padding-margin-sizes: (
   0: 0,
   1: 0.25rem,
@@ -54,7 +49,6 @@ $padding-margin-sizes: (
   5: 3rem,
 );
 
-// Definir variables de tamaños
 $btn-sizes: (
   sm: 0.25rem 0.5rem,
   md: 0.5rem 1rem,
