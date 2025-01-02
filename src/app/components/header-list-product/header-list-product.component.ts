@@ -2,6 +2,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { ButtonComponent } from '../button/button.component';
 import { SearchComponent } from '../search/search.component';
 import { Router } from '@angular/router';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'header-list-product',

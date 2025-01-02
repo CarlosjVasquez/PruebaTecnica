@@ -4,10 +4,6 @@
   </div>
   <h1 class="title m-0 py-4">{{ title }}</h1>
   <div class="content-form">
-    <form-product
-      [edit]="edit"
-      [product]="selectedProduct"
-      (submitEventEmitter)="onSubmitForm($event)"
-    />
+    <form-product [edit]="edit" (submitEventEmitter)="onSubmitForm($event)" />
   </div>
 </div>

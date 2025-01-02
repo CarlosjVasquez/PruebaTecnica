@@ -1,6 +1,13 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { InputComponent } from '../input/input.component';
-import { FormBuilder, FormControl, FormGroup, FormsModule, NgForm, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  FormsModule,
+  NgForm,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { Product } from '../../models/product';
 import { ButtonComponent } from '../button/button.component';
 import { ProductService } from '../../services/product.service';
@@ -14,7 +21,7 @@ interface ErrorVerificationId {
 @Component({
   selector: 'form-product',
   standalone: true,
-  imports: [InputComponent, FormsModule, ButtonComponent, ReactiveFormsModule ],
+  imports: [InputComponent, FormsModule, ButtonComponent, ReactiveFormsModule],
   templateUrl: './form-product.component.html',
   styleUrl: './form-product.component.scss',
 })
@@ -23,12 +30,15 @@ export class FormProductComponent implements OnInit {
   @Output() submitEventEmitter: EventEmitter<Product> = new EventEmitter();
 
   errorVerificationId: ErrorVerificationId | null = null;
-  form!: FormGroup
+  form!: FormGroup;
 
-  constructor(private readonly productService: ProductService, private readonly _fb: FormBuilder) { }
+  constructor(
+    private readonly productService: ProductService,
+    private readonly _fb: FormBuilder
+  ) {}
 
   ngOnInit(): void {
-    this.initForm()
+    this.initForm();
   }
 
   initForm() {
@@ -39,11 +49,11 @@ export class FormProductComponent implements OnInit {
       logo: new FormControl(''),
       date_release: new FormControl(''),
       date_revision: new FormControl(''),
-    })
+    });
   }
 
   onSubmit() {
-    this.submitEventEmitter.emit(this.form.value());
+    this.submitEventEmitter.emit(this.form.value);
   }
 
   getSearchErrors(form: NgForm) {
@@ -56,9 +66,11 @@ export class FormProductComponent implements OnInit {
   }
 
   calcdate_revision(): void {
-    const date_release = new Date(this.form.value().date_release);
+    const date_release = new Date(this.form.value.date_release);
     date_release.setFullYear(date_release.getFullYear() + 1);
-    this.form.value().date_revision = date_release.toISOString().split('T')[0];
+    this.form.patchValue({
+      date_revision: date_release.toISOString().split('T')[0],
+    });
   }
 
   verificationID(id: string) {
@@ -73,5 +85,9 @@ export class FormProductComponent implements OnInit {
       }
       this.errorVerificationId = null;
     });
+  }
+
+  formControlType(key: string) {
+    return this.form.controls[key] as FormControl;
   }
 }

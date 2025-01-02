@@ -6,10 +6,11 @@
     *ngIf="label"
     >{{ label }}</label
   >
-  <!-- [class.is-invalid]="" -->
   <input
     class="form-input"
-    
+    [class.is-invalid]="
+      formControl.invalid && (formControl.dirty || formControl.touched)
+    "
     [type]="type"
     [id]="id"
     [name]="name"
@@ -24,5 +25,10 @@
     (input)="onHandleInput($event)"
     (change)="onHandleChange($event)"
   />
-  <!-- <span class="form-error" *ngIf="error">{{ error }}</span> -->
+  <span
+    class="form-error"
+    *ngIf="formControl.errors && (formControl.dirty || formControl.touched)"
+  >
+    {{ getErrorMessage() }}
+  </span>
 </div>

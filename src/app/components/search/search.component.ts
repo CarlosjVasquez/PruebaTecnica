@@ -1,18 +1,30 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { InputComponent } from '../input/input.component';
-import { FormsModule, NgForm } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'search',
   standalone: true,
-  imports: [InputComponent, FormsModule],
+  imports: [InputComponent],
   templateUrl: './search.component.html',
   styleUrl: './search.component.scss',
 })
-export class SearchComponent {
+export class SearchComponent implements OnInit {
   @Output() onInputEventemitter: EventEmitter<string> = new EventEmitter();
+
+  public form!: FormGroup;
+
+  ngOnInit(): void {
+    this.form = new FormGroup({
+      search: new FormControl(''),
+    });
+  }
 
   onInput(value: string) {
     this.onInputEventemitter.emit(value);
+  }
+
+  formControlType(key: string) {
+    return this.form.controls[key] as FormControl;
   }
 }
