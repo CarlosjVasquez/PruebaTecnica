@@ -1,17 +1,17 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { HeaderListProductComponent } from '../header-list-product/header-list-product.component';
+import { Component, OnDestroy } from '@angular/core';
+import { HeaderListProductComponent } from '../../components/header-list-product/header-list-product.component';
 import {
   Columns,
   Data,
   DropdownEvent,
   TableComponent,
-} from '../table/table.component';
-import { ResultsComponent } from '../results/results.component';
-import { OtionsSelect, SelectComponent } from '../select/select.component';
-import { ModalComponent } from '../modal/modal.component';
+} from '@components/table/table.component';
+import { ResultsComponent } from '@components/results/results.component';
+import { OtionsSelect, SelectComponent } from '@components/select/select.component';
+import { ModalComponent } from '@components/modal/modal.component';
 import { Product } from '../../models/product';
 import { ProductService } from '../../services/product.service';
-import { Option } from '../dropdown/dropdown.component';
+import { Option } from '@components/dropdown/dropdown.component';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
@@ -127,7 +127,7 @@ export class ListProductComponent implements OnDestroy {
   onHandleUpdate(data: Data) {
     const productUpdate: Product = data as Product;
     this.onHandleSelectProduct(productUpdate);
-    this.router.navigate(['/product/update']);
+    this.router.navigate(['/products/update']);
   }
 
   openModal() {

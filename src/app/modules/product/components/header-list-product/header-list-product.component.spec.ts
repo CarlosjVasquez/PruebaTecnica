@@ -2,10 +2,10 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HeaderListProductComponent } from './header-list-product.component';
 import { By } from '@angular/platform-browser';
-import { ButtonComponent } from '../button/button.component';
-import { InputComponent } from '../input/input.component';
+import { ButtonComponent } from '../../../../components/button/button.component';
+import { InputComponent } from '../../../../components/input/input.component';
 import { Router, RouterModule } from '@angular/router';
-import { ProductComponent } from '../product/product.component';
+import { ProductComponent } from '../../pages/product/product.component';
 
 describe('HeaderListProductComponent', () => {
   let component: HeaderListProductComponent;

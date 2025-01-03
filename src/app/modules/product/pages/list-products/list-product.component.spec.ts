@@ -1,11 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ListProductComponent } from './list-product.component';
-import { HeaderListProductComponent } from '../header-list-product/header-list-product.component';
-import { TableComponent } from '../table/table.component';
-import { ResultsComponent } from '../results/results.component';
-import { SelectComponent } from '../select/select.component';
-import { ModalComponent } from '../modal/modal.component';
+import { HeaderListProductComponent } from '../../components/header-list-product/header-list-product.component';
+import { TableComponent } from '../../components/table/table.component';
+import { ResultsComponent } from '../../components/results/results.component';
+import { SelectComponent } from '../../components/select/select.component';
+import { ModalComponent } from '../../components/modal/modal.component';
 import { of } from 'rxjs';
 import { Product } from '../../models/product';
 import { ProductService } from '../../services/product.service';

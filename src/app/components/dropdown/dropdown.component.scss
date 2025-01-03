@@ -1,3 +1,5 @@
+@import "../../../styles/variables";
+
 /* Estilos generales del dropdown */
 .dropdown {
   position: relative;
@@ -16,10 +18,9 @@
   width: 150px;
   top: 0;
   left: -150px;
-  background-color: #f1f1f1;
-  color: #333;
-  padding: 10px;
-  border: 1px solid #ccc;
+  background-color: map-get($colors, "white");
+  color: map-get($colors, "dark");
+  border: 1px solid map-get($colors, "gray");
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   list-style-type: none;
@@ -35,7 +36,7 @@
 }
 
 .dropdown-menu li a {
-  color: #333;
+  color: map-get($colors, "gray");
   text-decoration: none;
   display: block;
   font-size: 0.8rem;

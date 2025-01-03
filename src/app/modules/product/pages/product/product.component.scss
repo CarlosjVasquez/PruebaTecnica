@@ -1,7 +1,7 @@
-@import "../../../styles/variables.scss";
+@import "../../../../../styles/variables";
 
 .title {
-  border-bottom: 1px map-get($colors, secondary) solid;
+  border-bottom: 1px map-get($colors, "secondary") solid;
   text-align: center;
 }
 
@@ -16,7 +16,7 @@
 }
 
 .close {
-  color: #aaa;
+  color: map-get($colors, "gray");
   float: right;
   font-size: 28px;
   font-weight: bold;
@@ -25,7 +25,7 @@
 
 .close:hover,
 .close:focus {
-  color: black;
+  color: map-get($colors, "dark");
   text-decoration: none;
   cursor: pointer;
 }

@@ -1,8 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { ButtonComponent } from '../button/button.component';
-import { SearchComponent } from '../search/search.component';
+import { ButtonComponent } from '@components/button/button.component';
+import { SearchComponent } from '@components/search/search.component';
 import { Router } from '@angular/router';
-import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'header-list-product',
@@ -13,10 +12,10 @@ import { FormControl } from '@angular/forms';
 })
 export class HeaderListProductComponent {
   @Output() onInputEventemitter: EventEmitter<string> = new EventEmitter();
-  constructor(private router: Router) {}
+  constructor(private readonly router: Router) {}
 
   onAddProduct() {
-    this.router.navigate(['/product/create']);
+    this.router.navigate(['/products/create']);
   }
 
   onHandleSubmit(search: string) {

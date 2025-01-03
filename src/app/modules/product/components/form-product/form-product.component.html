@@ -6,10 +6,6 @@
           label="ID"
           id="id"
           name="id"
-          [minlength]="3"
-          [maxlength]="10"
-          [required]="true"
-          (onChangeEventEmitter)="verificationID($event)"
           [onlyLetters]="true"
           [disabled]="edit"
           [formControl]="formControlType('id')"
@@ -94,7 +90,7 @@
           type="submit"
           [class]="edit ? 'content-btn-center' : 'content-btn-left'"
           label="Enviar"
-          [disabled]="form.invalid || !!errorVerificationId"
+          [disabled]="form.invalid"
         />
       </div>
     </div>

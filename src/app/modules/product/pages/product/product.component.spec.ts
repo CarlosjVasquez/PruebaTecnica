@@ -5,8 +5,8 @@ import { of } from 'rxjs';
 import { Product } from '../../models/product';
 import { ProductService } from '../../services/product.service';
 import { Router } from '@angular/router';
-import { FormProductComponent } from '../form-product/form-product.component';
-import { ButtonComponent } from '../button/button.component';
+import { FormProductComponent } from '../../components/form-product/form-product.component';
+import { ButtonComponent } from '../../components/button/button.component';
 
 describe('ProductComponent', () => {
   let component: ProductComponent;

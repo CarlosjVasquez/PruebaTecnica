@@ -8,9 +8,9 @@ import { BadRequestError, ResponseSuccessfully } from '../models/codeResponse';
   providedIn: 'root',
 })
 export class ProductService {
-  private productsSubject = new BehaviorSubject<Product[]>([]);
-  private filterProductsSubject = new BehaviorSubject<Product[]>([]);
-  private selectedProductSubject = new BehaviorSubject<Product>(
+  private readonly productsSubject = new BehaviorSubject<Product[]>([]);
+  private readonly filterProductsSubject = new BehaviorSubject<Product[]>([]);
+  private readonly selectedProductSubject = new BehaviorSubject<Product>(
     new Product('', '', '', '', '', '')
   );
 
@@ -18,7 +18,7 @@ export class ProductService {
   filterProducts$ = this.filterProductsSubject.asObservable();
   selectedProduct$ = this.selectedProductSubject.asObservable();
 
-  constructor(private http: HttpClient) {
+  constructor(private readonly http: HttpClient) {
     this.getProducts().subscribe(({ data }) => {
       this.productsSubject.next(data as Product[]);
       this.filterProductsSubject.next(data as Product[]);

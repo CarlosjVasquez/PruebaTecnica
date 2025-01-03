@@ -5,4 +5,5 @@ export const DEFAULT_ERROR_MESSAGES: { [key: string]: string } = {
   pattern: 'Formato no válido.',
   min: 'El valor mínimo permitido es {min}.',
   max: 'El valor máximo permitido es {max}.',
+  idValidation: 'ID ya se encuentra registrado.', 
 };
